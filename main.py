@@ -1,9 +1,9 @@
 import os
 
-from src.get_name_list import clear_names
+from src.get_name_list import clear_names, filter_cyrillic_names, filter_latin_names
 
 
-def main() -> None:
+def main_1() -> None:
     """Вывод списка имен, содержащихся в файле"""
     current_directory = os.getcwd()
     file_name = os.path.join(current_directory, r"data/names.txt")
@@ -14,4 +14,34 @@ def main() -> None:
         print(name)
 
 
-main()
+main_1()
+
+
+def main_2() -> None:
+    """Создание файла с именами на английском языке"""
+    current_directory = os.getcwd()
+    file_name = os.path.join(current_directory, r"data/names.txt")
+
+    latin_names = filter_latin_names(file_name)
+
+    with open(r"data/eng_names.txt", "w", encoding="utf-8") as latin_names_file:
+        for name in latin_names:
+            latin_names_file.write(f"{name}\n")
+
+
+main_2()
+
+
+def main_3() -> None:
+    """Создание файла с именами на русском языке"""
+    current_directory = os.getcwd()
+    file_name = os.path.join(current_directory, r"data/names.txt")
+
+    cyrillic_names = filter_cyrillic_names(file_name)
+
+    with open(r"data/rus_names.txt", "w", encoding="utf-8") as cyrillic_names_file:
+        for name in cyrillic_names:
+            cyrillic_names_file.write(f"{name}\n")
+
+
+main_3()
