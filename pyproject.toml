@@ -1,0 +1,19 @@
+[project]
+name = "project-9-2-git-practice"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Nadezhda_Popova",email = "nadezhdapopova13@yandex.ru"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "project_9"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
