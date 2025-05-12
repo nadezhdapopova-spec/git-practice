@@ -1,14 +1,11 @@
+from config import ROOT_DIR
 import os
-
-from mypy.types import names
-
 from src.get_name_list import clear_names, filter_cyrillic_names, filter_latin_names
 
 
 def main_1() -> None:
     """Вывод списка имен, содержащихся в файле"""
-    current_directory = os.getcwd()
-    file_name = os.path.join(current_directory, r"data/names.txt")
+    file_name = os.path.join(ROOT_DIR, r"data/names.txt")
 
     cleared_names = clear_names(file_name)
 
@@ -21,8 +18,7 @@ main_1()
 
 def main_2() -> None:
     """Создание файла с именами на английском языке"""
-    current_directory = os.getcwd()
-    file_name = os.path.join(current_directory, r"data/names.txt")
+    file_name = os.path.join(ROOT_DIR, r"data/names.txt")
 
     latin_names = filter_latin_names(file_name)
 
