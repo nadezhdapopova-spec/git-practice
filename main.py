@@ -1,5 +1,6 @@
-from config import ROOT_DIR
 import os
+
+from config import ROOT_DIR
 from src.get_name_list import clear_names, filter_cyrillic_names, filter_latin_names
 
 
