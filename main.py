@@ -1,5 +1,7 @@
 import os
 
+from mypy.types import names
+
 from src.get_name_list import clear_names, filter_cyrillic_names, filter_latin_names
 
 
@@ -25,8 +27,7 @@ def main_2() -> None:
     latin_names = filter_latin_names(file_name)
 
     with open(r"data/eng_names.txt", "w", encoding="utf-8") as latin_names_file:
-        for name in latin_names:
-            latin_names_file.write(f"{name}\n")
+        latin_names_file.write("\n".join(latin_names))
 
 
 main_2()
@@ -40,8 +41,7 @@ def main_3() -> None:
     cyrillic_names = filter_cyrillic_names(file_name)
 
     with open(r"data/rus_names.txt", "w", encoding="utf-8") as cyrillic_names_file:
-        for name in cyrillic_names:
-            cyrillic_names_file.write(f"{name}\n")
+        cyrillic_names_file.write("\n".join(cyrillic_names))
 
 
 main_3()

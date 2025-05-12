@@ -9,7 +9,7 @@ def clear_names(file_name: str) -> list:
             for ch in line:
                 if ch.isalpha():
                     name += ch
-            if name != "":
+            if name:
                 name_list.append(name)
     return name_list
 
@@ -27,7 +27,7 @@ def filter_latin_names(file_name: str) -> list:
             for ch in line:
                 if ch.lower() in latin_alphabet:
                     name += ch
-            if name != "":
+            if name:
                 latin_names.append(name)
 
     return latin_names
@@ -47,7 +47,7 @@ def filter_cyrillic_names(file_name: str) -> list:
             for ch in line:
                 if ch.lower() in rus_alphabet:
                     name += ch
-            if name != "":
+            if name:
                 cyrillic_names.append(name)
 
     return cyrillic_names
