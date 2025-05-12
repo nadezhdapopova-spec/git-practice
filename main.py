@@ -32,8 +32,7 @@ main_2()
 
 def main_3() -> None:
     """Создание файла с именами на русском языке"""
-    current_directory = os.getcwd()
-    file_name = os.path.join(current_directory, r"data/names.txt")
+    file_name = os.path.join(ROOT_DIR, r"data/names.txt")
 
     cyrillic_names = filter_cyrillic_names(file_name)
 
