@@ -2,6 +2,7 @@ import os
 
 from config import ROOT_DIR
 from src.get_name_list import clear_names, filter_cyrillic_names, filter_latin_names
+from src.calculate_taxes import calculate_taxes
 
 
 def main_1() -> None:
@@ -41,3 +42,12 @@ def main_3() -> None:
 
 
 main_3()
+
+
+def main_4() -> None:
+    """Вывод списка стоимости товаров с учётом налога."""
+    print()
+    print(calculate_taxes([144.5, 1000.0, 2500.15], 13.0))
+
+
+main_4()
