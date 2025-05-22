@@ -32,3 +32,26 @@ def test_calculate_taxes_invalid_price(invalid_prices):
 ])
 def test_calculate_tax_success(price, tax_rate, expected):
     assert calculate_tax(price, tax_rate) == expected
+
+
+@pytest.mark.parametrize("price, tax_rate", [
+    (1000.0, -1.5),
+    (258.20, -1),
+    (4500.5, 100),
+    (25.8, 110)
+])
+def test_calculate_tax_invalid_tax_rate(price, tax_rate):
+    with pytest.raises(ValueError) as exc_info:
+        calculate_tax(price, tax_rate)
+    assert str(exc_info.value) == "Неверный налоговый процент"
+
+
+@pytest.mark.parametrize("price, tax_rate", [
+    (-1000, 10),
+    (0, 13),
+    (-1, 1)
+])
+def test_calculate_tax_invalid_price(price, tax_rate):
+    with pytest.raises(ValueError) as exc_info:
+        calculate_tax(price, tax_rate)
+    assert str(exc_info.value) == "Неверная цена"
