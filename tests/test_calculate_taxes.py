@@ -1,5 +1,5 @@
 import pytest
-from src.calculate_taxes import calculate_taxes
+from src.calculate_taxes import calculate_taxes, calculate_tax
 
 
 @pytest.mark.parametrize("tax_rate, expected", [
@@ -22,3 +22,13 @@ def test_calculate_taxes_invalid_price(invalid_prices):
     with pytest.raises(ValueError) as exc_info:
         calculate_taxes(invalid_prices, 10.0)
     assert str(exc_info.value) == "Неверная цена"
+
+
+@pytest.mark.parametrize("price, tax_rate, expected", [
+    (1000.0, 10, 1100.0),
+    (258.20, 15, 296.93),
+    (4500.5, 20, 5400.6),
+    (25.8, 0, 25.8)
+])
+def test_calculate_tax_success(price, tax_rate, expected):
+    assert calculate_tax(price, tax_rate) == expected
