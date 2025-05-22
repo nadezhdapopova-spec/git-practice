@@ -2,22 +2,10 @@ import pytest
 from src.calculate_taxes import calculate_taxes
 
 
-def test_calculate_taxes_success_1(prices):
-    print(calculate_taxes(prices, 10))
-
-
-def test_calculate_taxes_success_2(prices):
-    print(calculate_taxes(prices, 50))
-
-
-def test_calculate_taxes_success_3(prices):
-    print(calculate_taxes(prices, 0))
-
-
-def test_calculate_taxes_success_4(prices):
-    print(calculate_taxes(prices, 1))
-
-
-@pytest.mark.parametrize("prices, tax_rate, result", [
-    ([1000.0, 258.20, 4500.5, 25.8, 300.1, 1.0], )
-]
+@pytest.mark.parametrize("tax_rate, expected", [
+    (10, [1100.0, 284.02, 4950.55, 28.38, 330.11, 1.1]),
+    (15, [1150.0, 296.93, 5175.57, 29.67, 345.12, 1.15]),
+    (20, [1200.0, 309.84, 5400.6, 30.96, 360.12, 1.2])
+])
+def test_calculate_taxes_success(prices, tax_rate, expected):
+    assert calculate_taxes(prices, tax_rate) == expected
